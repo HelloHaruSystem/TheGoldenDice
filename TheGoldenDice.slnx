@@ -1,3 +1,5 @@
 <Solution>
-  <Project Path="Domain/Domain.csproj" />
+  <Folder Name="/src/">
+    <Project Path="src/TheGoldenDice.Domain/TheGoldenDice.Domain.csproj" />
+  </Folder>
 </Solution>
