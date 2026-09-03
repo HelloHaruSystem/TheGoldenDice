@@ -1,6 +1,6 @@
 <mxfile host="Electron">
   <diagram name="Page-1" id="6nPawPOeYit4xtyEqKim">
-    <mxGraphModel dx="846" dy="2028" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="846" dy="859" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -67,66 +67,11 @@
             <mxPoint as="offset" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="fNhzJfAdbrWba7K6fqol-41" edge="1" parent="1" source="fNhzJfAdbrWba7K6fqol-18" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;endArrow=none;endFill=0;" target="fNhzJfAdbrWba7K6fqol-35">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="fNhzJfAdbrWba7K6fqol-42" connectable="0" parent="fNhzJfAdbrWba7K6fqol-41" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="Kan have" vertex="1">
-          <mxGeometry relative="1" x="0.0338" y="2" as="geometry">
-            <mxPoint as="offset" />
-          </mxGeometry>
-        </mxCell>
         <mxCell id="fNhzJfAdbrWba7K6fqol-18" parent="1" style="ellipse;whiteSpace=wrap;html=1;shapeInside=1;" value="Gear" vertex="1">
           <mxGeometry height="80" width="120" x="354" y="30" as="geometry" />
         </mxCell>
         <mxCell id="fNhzJfAdbrWba7K6fqol-25" parent="1" style="ellipse;whiteSpace=wrap;html=1;shapeInside=1;" value="Party" vertex="1">
           <mxGeometry height="80" width="120" x="540" y="360" as="geometry" />
-        </mxCell>
-        <mxCell id="fNhzJfAdbrWba7K6fqol-47" edge="1" parent="1" source="fNhzJfAdbrWba7K6fqol-35" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;endArrow=none;endFill=0;" target="fNhzJfAdbrWba7K6fqol-43">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="fNhzJfAdbrWba7K6fqol-49" connectable="0" parent="fNhzJfAdbrWba7K6fqol-47" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];rotation=-15;" value="Kan være" vertex="1">
-          <mxGeometry relative="1" x="-0.2167" y="1" as="geometry">
-            <mxPoint x="15" y="-4" as="offset" />
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="fNhzJfAdbrWba7K6fqol-55" edge="1" parent="1" source="fNhzJfAdbrWba7K6fqol-35" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=none;endFill=0;" target="fNhzJfAdbrWba7K6fqol-54">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="fNhzJfAdbrWba7K6fqol-56" connectable="0" parent="fNhzJfAdbrWba7K6fqol-55" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];rotation=-90;" value="Er en" vertex="1">
-          <mxGeometry relative="1" x="0.1515" y="-3" as="geometry">
-            <mxPoint x="-3" y="3" as="offset" />
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="fNhzJfAdbrWba7K6fqol-35" parent="1" style="ellipse;whiteSpace=wrap;html=1;shapeInside=1;" value="WearableItem" vertex="1">
-          <mxGeometry height="80" width="120" x="354" y="-160" as="geometry" />
-        </mxCell>
-        <mxCell id="fNhzJfAdbrWba7K6fqol-37" edge="1" parent="1" source="fNhzJfAdbrWba7K6fqol-36" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=1;entryDx=0;entryDy=0;endArrow=none;endFill=0;" target="fNhzJfAdbrWba7K6fqol-35">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="fNhzJfAdbrWba7K6fqol-40" connectable="0" parent="fNhzJfAdbrWba7K6fqol-37" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];rotation=-30;" value="Item har stats" vertex="1">
-          <mxGeometry relative="1" x="0.0167" y="1" as="geometry">
-            <mxPoint as="offset" />
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="fNhzJfAdbrWba7K6fqol-38" edge="1" parent="1" source="fNhzJfAdbrWba7K6fqol-36" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=none;endFill=0;" target="fNhzJfAdbrWba7K6fqol-12">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="fNhzJfAdbrWba7K6fqol-39" connectable="0" parent="fNhzJfAdbrWba7K6fqol-38" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];rotation=-97;" value="Class har stats" vertex="1">
-          <mxGeometry relative="1" x="-0.1608" y="-1" as="geometry">
-            <mxPoint as="offset" />
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="fNhzJfAdbrWba7K6fqol-36" parent="1" style="ellipse;whiteSpace=wrap;html=1;shapeInside=1;" value="Stats" vertex="1">
-          <mxGeometry height="80" width="120" x="130" y="-40" as="geometry" />
-        </mxCell>
-        <mxCell id="fNhzJfAdbrWba7K6fqol-43" parent="1" style="ellipse;whiteSpace=wrap;html=1;shapeInside=1;" value="HeadGear" vertex="1">
-          <mxGeometry height="80" width="120" x="590" y="-220" as="geometry" />
-        </mxCell>
-        <mxCell id="fNhzJfAdbrWba7K6fqol-46" parent="1" style="ellipse;whiteSpace=wrap;html=1;shapeInside=1;opacity=50;" value="WeaponGear" vertex="1">
-          <mxGeometry height="80" width="120" x="590" y="-200" as="geometry" />
-        </mxCell>
-        <mxCell id="fNhzJfAdbrWba7K6fqol-54" parent="1" style="ellipse;whiteSpace=wrap;html=1;shapeInside=1;" value="Item" vertex="1">
-          <mxGeometry height="80" width="120" x="354" y="-350" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
