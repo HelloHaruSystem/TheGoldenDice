@@ -28,22 +28,16 @@
             <mxPoint as="offset" />
           </mxGeometry>
         </mxCell>
+        <mxCell id="fNhzJfAdbrWba7K6fqol-57" edge="1" parent="1" source="fNhzJfAdbrWba7K6fqol-5" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0;exitDx=0;exitDy=0;entryX=1;entryY=1;entryDx=0;entryDy=0;endArrow=none;endFill=0;" target="fNhzJfAdbrWba7K6fqol-36">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="fNhzJfAdbrWba7K6fqol-58" connectable="0" parent="fNhzJfAdbrWba7K6fqol-57" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];rotation=53;" value="Character har BaseStats" vertex="1">
+          <mxGeometry relative="1" x="0.0569" y="-2" as="geometry">
+            <mxPoint x="10" y="16" as="offset" />
+          </mxGeometry>
+        </mxCell>
         <mxCell id="fNhzJfAdbrWba7K6fqol-5" parent="1" style="ellipse;whiteSpace=wrap;html=1;shapeInside=1;" value="Character" vertex="1">
           <mxGeometry height="80" width="120" x="354" y="200" as="geometry" />
-        </mxCell>
-        <mxCell id="fNhzJfAdbrWba7K6fqol-6" parent="1" style="ellipse;whiteSpace=wrap;html=1;shapeInside=1;" value="HealthPoints" vertex="1">
-          <mxGeometry height="80" width="120" x="550" y="200" as="geometry" />
-        </mxCell>
-        <mxCell id="fNhzJfAdbrWba7K6fqol-7" edge="1" parent="1" style="endArrow=none;html=1;rounded=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;exitX=0;exitY=0.5;exitDx=0;exitDy=0;" value="">
-          <mxGeometry height="50" relative="1" width="50" as="geometry">
-            <mxPoint x="550" y="240.0000000000001" as="sourcePoint" />
-            <mxPoint x="473.9999999999977" y="240.0000000000001" as="targetPoint" />
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="fNhzJfAdbrWba7K6fqol-8" connectable="0" parent="fNhzJfAdbrWba7K6fqol-7" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="Has" vertex="1">
-          <mxGeometry relative="1" x="0.0681" as="geometry">
-            <mxPoint as="offset" />
-          </mxGeometry>
         </mxCell>
         <mxCell id="fNhzJfAdbrWba7K6fqol-9" parent="1" style="ellipse;whiteSpace=wrap;html=1;shapeInside=1;" value="Actions" vertex="1">
           <mxGeometry height="80" width="120" x="354" y="360" as="geometry" />
