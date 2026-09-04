@@ -364,7 +364,7 @@
           <mxGeometry height="8" width="160" y="104" as="geometry" />
         </mxCell>
         <mxCell id="1OjKhFDBfKCCN9yBZbfW-154" parent="1" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=40;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" value="IAction&lt;br&gt;&amp;lt;&amp;lt;interface&amp;gt;&amp;gt;" vertex="1">
-          <mxGeometry height="204" width="320" x="880" y="281" as="geometry" />
+          <mxGeometry height="204" width="320" x="880" y="288" as="geometry" />
         </mxCell>
         <mxCell id="1OjKhFDBfKCCN9yBZbfW-155" parent="1OjKhFDBfKCCN9yBZbfW-154" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="+ Name : string" vertex="1">
           <mxGeometry height="26" width="320" y="40" as="geometry" />
@@ -394,7 +394,7 @@
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="1OjKhFDBfKCCN9yBZbfW-179" parent="1" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=40;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" value="RegisterAbsenceAction" vertex="1">
-          <mxGeometry height="204" width="320" x="1360" y="156" as="geometry" />
+          <mxGeometry height="204" width="320" x="1360" y="163" as="geometry" />
         </mxCell>
         <mxCell id="1OjKhFDBfKCCN9yBZbfW-180" parent="1OjKhFDBfKCCN9yBZbfW-179" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="+ Name : string" vertex="1">
           <mxGeometry height="26" width="320" y="40" as="geometry" />
@@ -421,7 +421,7 @@
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="1OjKhFDBfKCCN9yBZbfW-189" parent="1" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=40;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" value="GetSomeFreshAirAction" vertex="1">
-          <mxGeometry height="204" width="320" x="1360" y="406" as="geometry" />
+          <mxGeometry height="204" width="320" x="1360" y="413" as="geometry" />
         </mxCell>
         <mxCell id="1OjKhFDBfKCCN9yBZbfW-190" parent="1OjKhFDBfKCCN9yBZbfW-189" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="+ Name : string" vertex="1">
           <mxGeometry height="26" width="320" y="40" as="geometry" />

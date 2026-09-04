@@ -1,4 +1,4 @@
-using TheGoldenDice.Domain.Characters;
+using TheGoldenDice.Domain.Classes;
 
 namespace TheGoldenDice.Domain.Action;
 
