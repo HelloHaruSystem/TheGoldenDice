@@ -1,4 +1,4 @@
-namespace TheGoldenDice.Domain.Characters;
+namespace TheGoldenDice.Domain.Classes;
 
 internal sealed class TecTeacher : IClass
 {

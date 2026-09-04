@@ -3,7 +3,7 @@ using TheGoldenDice.Domain.Characters;
 using TheGoldenDice.Domain.Gear;
 using TheGoldenDice.Domain.Stats;
 
-namespace TheGoldenDice.Domain.CharacterClasses;
+namespace TheGoldenDice.Domain.Character;
 
 internal sealed class NpcCharacter
     (string name,

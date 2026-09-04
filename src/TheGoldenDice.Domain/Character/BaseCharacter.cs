@@ -4,7 +4,7 @@ using TheGoldenDice.Domain.Gear;
 using TheGoldenDice.Domain.Items;
 using TheGoldenDice.Domain.Stats;
 
-namespace TheGoldenDice.Domain.CharacterClasses;
+namespace TheGoldenDice.Domain.Character;
 
 public abstract class BaseCharacter(
     string name,
