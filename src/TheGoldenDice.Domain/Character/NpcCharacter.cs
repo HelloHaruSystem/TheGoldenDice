@@ -1,5 +1,5 @@
 using TheGoldenDice.Domain.Action;
-using TheGoldenDice.Domain.Characters;
+using TheGoldenDice.Domain.Classes;
 using TheGoldenDice.Domain.Gear;
 using TheGoldenDice.Domain.Stats;
 

@@ -1,4 +1,4 @@
-using TheGoldenDice.Domain.CharacterClasses;
+using TheGoldenDice.Domain.Character;
 
 namespace TheGoldenDice.Domain.Party;
 
