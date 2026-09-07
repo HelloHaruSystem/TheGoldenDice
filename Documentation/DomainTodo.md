@@ -39,12 +39,22 @@ to master — most of the original list is done.
 Both feed into `BaseCharacter.GetAccumulatedStats()`, so that method is
 still blocked by these even though the `Gear` side is fixed.
 
-## Blocks Battle.Domain
+## Done, but signature changed
 
-- `GetSomeFreshAirAction`/`RegisterAbsenceAction`'s
-  `Execute(IDamageable, IDamageable, double)` bodies — still throw. This
-  is what `Battle.Domain`'s `Battle.ResolveAction` needs to stop being a
-  stub.
+- `GetSomeFreshAirAction`/`RegisterAbsenceAction`'s `Execute` bodies are
+  real now. `IAction.Execute` changed from `(IDamageable actor,
+  IDamageable victim, double modifier)` to `(IDamageable actor,
+  IReadOnlyList<IDamageable> targets, double modifier)` — needed since
+  `RegisterAbsenceAction` hits the whole enemy party, not one target.
+  `GetSomeFreshAirAction` heals `actor` for a flat 5, ignoring `targets`/
+  `modifier`. `RegisterAbsenceAction` deals a flat 2 damage to every
+  entry in `targets`, scaled by `modifier` (meant to carry stat-based
+  scaling from whoever calls `Execute`). All placeholder numbers, not
+  balance. `Battle.Domain` doesn't call `Execute` anywhere yet
+  (`Battle.ResolveAction` is still its own stub), so this didn't ripple
+  there — but `Battle.Domain`'s eventual `ResolveAction` implementation
+  will need to build a `targets` list (the opposing party's `IDamageable`s)
+  before calling this.
 
 ## A real bug, found via the compiler
 

@@ -11,8 +11,13 @@ public sealed class RegisterAbsenceAction : IAction
     public int RequiredLevel { get; set; } = 1;
     public HashSet<IClass> AllowedClasses { get; set; } = [new TecTeacher()];
 
-    public void Execute(IDamageable actor, IDamageable victim, double modifier)
+    public void Execute(IDamageable actor, IReadOnlyList<IDamageable> targets, double modifier)
     {
-        throw new NotImplementedException();
+        int damage = (int)(2 * modifier);
+
+        foreach (IDamageable target in targets)
+        {
+            target.TakeDamage(damage);
+        }
     }
 }
