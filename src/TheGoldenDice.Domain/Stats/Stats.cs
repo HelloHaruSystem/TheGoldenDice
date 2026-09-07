@@ -1,6 +1,6 @@
 namespace TheGoldenDice.Domain.Stats;
 
-internal sealed class Stats : IStats
+public sealed class Stats : IStats
 {
     public int HPModifier { get; set; } = 0;
     public int AttackPower { get; set; } = 0;

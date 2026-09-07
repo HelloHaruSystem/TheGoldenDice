@@ -2,7 +2,7 @@ using TheGoldenDice.Domain.Character;
 
 namespace TheGoldenDice.Domain.Party;
 
-internal sealed class Party : IParty
+public sealed class Party(List<BaseCharacter> characters) : IParty
 {
-    public List<BaseCharacter> Characters { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+    public List<BaseCharacter> Characters { get; set; } = characters;
 }

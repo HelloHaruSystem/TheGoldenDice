@@ -1,9 +1,10 @@
 using TheGoldenDice.Domain.Character;
 using TheGoldenDice.Domain.Classes;
+using TheGoldenDice.Domain.Common;
 
 namespace TheGoldenDice.Domain.Action;
 
-public interface IAction
+public interface IAction : ICatalogItem
 {
     public string Name { get; set; }
     public string Description { get; set; }

@@ -2,9 +2,9 @@ using TheGoldenDice.Domain.Stats;
 
 namespace TheGoldenDice.Domain.Items;
 
-internal sealed class TecVest : IHeadGear
+public sealed class TecVest : IHeadGear
 {
     public IStats Stats { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-    public string Name { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-    public string Description { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+    public string Name { get; set; } = "Tec Vest";
+    public string Description { get; set; } = "A hi-vis vest. Offers a small sense of authority, and a little bit of protection.";
 }

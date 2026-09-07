@@ -5,7 +5,7 @@ using TheGoldenDice.Domain.Stats;
 
 namespace TheGoldenDice.Domain.Character;
 
-internal sealed class PlayerCharacter(
+public sealed class PlayerCharacter(
         string name,
         int level,
         int maxHp,
