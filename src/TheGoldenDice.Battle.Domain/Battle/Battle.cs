@@ -11,8 +11,8 @@ internal sealed class Battle : IBattle
     private readonly IParty _partyA;
     private readonly IParty _partyB;
     private readonly List<ITurn> _turns = [];
-    private readonly Dictionary<BaseCharacter, ActionSubmission> _actingSubmissions = [];
-    private readonly Dictionary<BaseCharacter, ActionSubmission> _opposingSubmissions = [];
+    private int _actingIndex = -1;
+    private ActionSubmission? _pendingAction;
 
     public Battle(IReadOnlyList<IParty> parties)
     {
@@ -21,6 +21,9 @@ internal sealed class Battle : IBattle
 
         foreach (IParty party in parties)
         {
+            if (party.Characters.Count == 0)
+                throw new ArgumentException("A party must have at least one character.", nameof(parties));
+
             foreach (BaseCharacter character in party.Characters)
             {
                 if (character is not IDamageable)
@@ -38,6 +41,9 @@ internal sealed class Battle : IBattle
     public IReadOnlyList<IParty> Parties { get; }
     public IReadOnlyList<ITurn> Turns => _turns;
     public BattleState State { get; private set; } = BattleState.NotStarted;
+    public BaseCharacter CurrentActor => ActingParty.Characters[_actingIndex];
+
+    private IParty ActingParty => State == BattleState.PartyTurn ? _partyA : _partyB;
 
     public Task StartAsync()
     {
@@ -45,80 +51,86 @@ internal sealed class Battle : IBattle
             throw new InvalidOperationException("Battle has already started.");
 
         State = BattleState.PartyTurn;
+        AdvanceToNextActor();
         return Task.CompletedTask;
     }
 
     public Task SubmitActionAsync(BaseCharacter actor, IAction action, BaseCharacter? target)
     {
         if (State != BattleState.PartyTurn && State != BattleState.OppositePartyTurn)
-            throw new InvalidOperationException("Battle is not waiting on party actions right now.");
+            throw new InvalidOperationException("Battle is not waiting on an action right now.");
 
-        (IParty party, Dictionary<BaseCharacter, ActionSubmission> submissions) = State == BattleState.PartyTurn
-            ? (_partyA, _actingSubmissions)
-            : (_partyB, _opposingSubmissions);
+        if (!ReferenceEquals(actor, CurrentActor))
+            throw new InvalidOperationException("It is not this character's turn.");
 
-        if (!party.Characters.Contains(actor))
-            throw new InvalidOperationException("Actor is not a member of the party whose turn it is.");
-
-        if (AsDamageable(actor).CurrentHp <= 0)
-            throw new InvalidOperationException("Actor is downed and cannot act.");
-
-        submissions[actor] = new ActionSubmission(action, target);
+        _pendingAction = new ActionSubmission(action, target);
         return Task.CompletedTask;
     }
 
     public Task AdvanceTurnAsync()
     {
-        if (State == BattleState.PartyTurn)
-        {
-            if (!AllLivingMembersSubmitted(_partyA, _actingSubmissions))
-                return Task.CompletedTask;
+        if (State != BattleState.PartyTurn && State != BattleState.OppositePartyTurn)
+            throw new InvalidOperationException("Battle is not waiting on an action right now.");
 
-            State = BattleState.OppositePartyTurn;
+        if (_pendingAction is null)
+            return Task.CompletedTask;
+
+        BaseCharacter actor = CurrentActor;
+        ActionSubmission submission = _pendingAction.Value;
+        _pendingAction = null;
+
+        ResolveAction(actor, submission);
+
+        if (IsPartyDefeated(_partyB))
+        {
+            State = BattleState.Victory;
+            return Task.CompletedTask;
         }
 
-        if (State == BattleState.OppositePartyTurn)
+        if (IsPartyDefeated(_partyA))
         {
-            if (!AllLivingMembersSubmitted(_partyB, _opposingSubmissions))
-                return Task.CompletedTask;
-
-            State = BattleState.ResolveTurn;
+            State = BattleState.Defeat;
+            return Task.CompletedTask;
         }
 
-        if (State == BattleState.ResolveTurn)
-        {
-            throw new NotImplementedException();
-        }
-
-        if (State == BattleState.CheckStatus)
-        {
-            bool partyADefeated = _partyA.Characters.All(c => AsDamageable(c).CurrentHp <= 0);
-            bool partyBDefeated = _partyB.Characters.All(c => AsDamageable(c).CurrentHp <= 0);
-
-            if (partyBDefeated)
-            {
-                State = BattleState.Victory;
-            }
-            else if (partyADefeated)
-            {
-                State = BattleState.Defeat;
-            }
-            else
-            {
-                _turns.Add(new TurnRecord(_turns.Count + 1, _partyA, _partyB));
-                _actingSubmissions.Clear();
-                _opposingSubmissions.Clear();
-                State = BattleState.PartyTurn;
-            }
-        }
-
+        AdvanceToNextActor();
         return Task.CompletedTask;
     }
 
-    private static bool AllLivingMembersSubmitted(
-        IParty party,
-        Dictionary<BaseCharacter, ActionSubmission> submissions)
-        => party.Characters.Where(c => AsDamageable(c).CurrentHp > 0).All(submissions.ContainsKey);
+    private void AdvanceToNextActor()
+    {
+        IParty party = ActingParty;
+
+        do
+        {
+            _actingIndex++;
+        } while (_actingIndex < party.Characters.Count && !IsAlive(party.Characters[_actingIndex]));
+
+        if (_actingIndex < party.Characters.Count)
+            return;
+
+        if (State == BattleState.PartyTurn)
+        {
+            State = BattleState.OppositePartyTurn;
+        }
+        else
+        {
+            _turns.Add(new TurnRecord(_turns.Count + 1, _partyA, _partyB));
+            State = BattleState.PartyTurn;
+        }
+
+        _actingIndex = -1;
+        AdvanceToNextActor();
+    }
+
+    private static void ResolveAction(BaseCharacter actor, ActionSubmission submission)
+        => throw new NotImplementedException();
+
+    private static bool IsPartyDefeated(IParty party)
+        => party.Characters.All(c => !IsAlive(c));
+
+    private static bool IsAlive(BaseCharacter character)
+        => AsDamageable(character).CurrentHp > 0;
 
     private static IDamageable AsDamageable(BaseCharacter character)
         => (IDamageable)character;

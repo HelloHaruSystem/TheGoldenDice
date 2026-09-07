@@ -10,6 +10,7 @@ public interface IBattle
     IReadOnlyList<IParty> Parties { get; }
     IReadOnlyList<ITurn> Turns { get; }
     BattleState State { get; }
+    BaseCharacter CurrentActor { get; }
 
     Task StartAsync();
     Task SubmitActionAsync(BaseCharacter actor, IAction action, BaseCharacter? target);

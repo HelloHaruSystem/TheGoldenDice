@@ -5,8 +5,6 @@ public enum BattleState
     NotStarted,
     PartyTurn,
     OppositePartyTurn,
-    ResolveTurn,
-    CheckStatus,
     Victory,
     Defeat
 }
