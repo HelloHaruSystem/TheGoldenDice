@@ -8,15 +8,24 @@ namespace TheGoldenDice.Domain.Character;
 public sealed class PlayerCharacter(
         string name,
         int level,
-        int maxHp,
+        int baseHp,
         List<IAction> actions,
         IGear gear,
         IClass @class,
         IStats stats)
         : BaseCharacter(name, level, actions, gear, @class, stats), IDamageable
 {
-    public int MaxHp { get; set; } = maxHp;
-    public int CurrentHp { get; set; } = maxHp;
+
+    private int _baseHp = baseHp;
+    public int MaxHp 
+    { 
+        get 
+        {
+            return _baseHp + base.GetAccumulatedStats().HPModifier;
+        }
+    } 
+
+    public int CurrentHp { get; set; } = baseHp;
 
     public void Heal(int healPoints)
     {

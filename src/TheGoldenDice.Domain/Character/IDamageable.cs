@@ -2,7 +2,7 @@ namespace TheGoldenDice.Domain.Character;
 
 public interface IDamageable
 {
-	int MaxHp { get; set; }
+	int MaxHp { get; }
 	int CurrentHp { get; set; }
 
 	void TakeDamage(int damagePoints);
