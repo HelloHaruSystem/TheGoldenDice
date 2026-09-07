@@ -27,5 +27,7 @@ public abstract class BaseCharacter(
         => throw new NotImplementedException();
 
     public IStats GetAccumulatedStats()
-      => throw new NotImplementedException();
+    {
+        IStats result = new Stats();
+    }
 }
