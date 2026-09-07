@@ -6,4 +6,5 @@ public interface IStats
     int AttackPower { get; set; }
     int DefensePower { get; set; }
     int Speed { get; set; }
+
 }
