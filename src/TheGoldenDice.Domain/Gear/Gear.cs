@@ -5,8 +5,8 @@ namespace TheGoldenDice.Domain.Gear;
 
 public sealed class Gear : IGear
 {
-    public IHeadGear? HeadSlot { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-    public IWeapon? WeaponSlot { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+    public IHeadGear? HeadSlot { get; set; }
+    public IWeapon? WeaponSlot { get; set; }
 
     public IStats GetAccumulatedStats()
     {
