@@ -5,6 +5,8 @@ namespace TheGoldenDice.Domain.Action;
 
 public sealed class GetSomeFreshAirAction : IAction
 {
+    private const int _baseHealAmount = 5;
+
     public string Name { get; set; } = "Get Some Fresh Air";
     public string Description { get; set; } = "Step outside for a moment to clear your head.";
     public int CoolDownTurns { get; set; } = 3;
@@ -12,5 +14,5 @@ public sealed class GetSomeFreshAirAction : IAction
     public HashSet<IClass> AllowedClasses { get; set; } = [new TecTeacher()];
 
     public void Execute(IDamageable actor, IReadOnlyList<IDamageable> targets, double modifier)
-        => actor.Heal(5);
+        => actor.Heal(_baseHealAmount);
 }

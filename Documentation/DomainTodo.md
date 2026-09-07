@@ -33,11 +33,11 @@ to master — most of the original list is done.
 ## Also still stubbed (deliberately left, not a mistake)
 
 - `TecTeacher.GetStatsForLevel(int)` — no stat-scaling formula decided
-  yet.
-- `TecVest.Stats` / `Cigarette.Stats` — no stat point values decided yet.
+  yet. This is the last thing feeding into
+  `BaseCharacter.GetAccumulatedStats()` that isn't real yet.
 
-Both feed into `BaseCharacter.GetAccumulatedStats()`, so that method is
-still blocked by these even though the `Gear` side is fixed.
+`TecVest.Stats` (`+1 HPModifier`, `+2 DefensePower`) and
+`Cigarette.Stats` (`-1 HPModifier`, `+2 AttackPower`) are done.
 
 ## Done, but signature changed
 
@@ -56,13 +56,6 @@ still blocked by these even though the `Gear` side is fixed.
   will need to build a `targets` list (the opposing party's `IDamageable`s)
   before calling this.
 
-## A real bug, found via the compiler
-
-- `BaseCharacter.GetAccumulatedStats()` calls
-  `_class.GetStatsForLevel(level)` using the captured constructor
-  parameter, not `this.Level` — flagged by the compiler itself
-  (`CS9124`). Effect: once a character levels up, `GetAccumulatedStats()`
-  keeps computing off the original construction-time level forever.
 
 ## Deferred on purpose
 
