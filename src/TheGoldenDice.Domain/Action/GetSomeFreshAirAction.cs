@@ -3,19 +3,13 @@ using TheGoldenDice.Domain.Classes;
 
 namespace TheGoldenDice.Domain.Action;
 
-internal sealed class GetSomeFreshAirAction(
-    string name,
-    string description,
-    int coolDownTurns,
-    int requiredLevel,
-    HashSet<IClass> allowedClasses)
-    : IAction
+public sealed class GetSomeFreshAirAction : IAction
 {
-    public string Name { get; set; } = name;
-    public string Description { get; set; } = description;
-    public int CoolDownTurns { get; set; } = coolDownTurns;
-    public int RequiredLevel { get; set; } = requiredLevel;
-    public HashSet<IClass> AllowedClasses { get; set; } = allowedClasses;
+    public string Name { get; set; } = "Get Some Fresh Air";
+    public string Description { get; set; } = "Step outside for a moment to clear your head.";
+    public int CoolDownTurns { get; set; } = 3;
+    public int RequiredLevel { get; set; } = 1;
+    public HashSet<IClass> AllowedClasses { get; set; } = [new TecTeacher()];
 
     public void Execute(IDamageable actor, IDamageable victim, double modifier)
     {

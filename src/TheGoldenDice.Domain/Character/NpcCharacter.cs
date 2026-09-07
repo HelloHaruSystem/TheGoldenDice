@@ -5,7 +5,7 @@ using TheGoldenDice.Domain.Stats;
 
 namespace TheGoldenDice.Domain.Character;
 
-internal sealed class NpcCharacter
+public sealed class NpcCharacter
     (string name,
      int level,
      int maxHp,
@@ -23,7 +23,7 @@ internal sealed class NpcCharacter
 
     public string GetTauntMessage()
     {
-        if (_tauntMessages.Count == 0) 
+        if (_tauntMessages.Count == 0)
         {
             return string.Empty;
         }
