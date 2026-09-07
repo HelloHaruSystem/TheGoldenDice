@@ -17,45 +17,35 @@ to master — most of the original list is done.
   constructor args; now that they don't, it's revisitable.
 - `Stats.HPModifier`/`AttackPower`/`DefensePower`/`Speed` — real.
 - `PlayerCharacter`/`NpcCharacter`'s `TakeDamage`/`Heal` — real.
-- `BaseCharacter.GetAccumulatedStats()` and `LootThisCharacter()`
-  (renamed from `Loot()`) — real, but see the blocker below.
+- `Gear.HeadSlot`/`WeaponSlot` — real plain `{ get; set; }` (kept public
+  on purpose: `IGear` requires public accessors, and
+  `BaseCharacter.LootThisCharacter()` sets them through the `IGear`-typed
+  `Gear` property, so a private setter would fail to compile).
 - `TecTeacher.Name`/`Description`/`Equals`/`GetHashCode`,
   `TecVest`/`Cigarette`'s `Name`/`Description`,
   `NpcCharacter.GetTauntMessage()`, `Party.Characters` — all real.
 - `RegisterAbsenceAction`'s `AllowedClasses` inconsistency — fixed.
-- `Gear.HeadSlot`/`WeaponSlot` — real plain `{ get; set; }` now (kept
-  public on purpose: `IGear` requires public accessors, and
-  `BaseCharacter.LootThisCharacter()` sets them through the `IGear`-typed
-  `Gear` property, so a private setter would both fail to compile and
-  break that method). This unblocks `Gear.GetAccumulatedStats()` and
-  `LootThisCharacter()` to actually run.
-
-## Also still stubbed (deliberately left, not a mistake)
-
-- `TecTeacher.GetStatsForLevel(int)` — no stat-scaling formula decided
-  yet. This is the last thing feeding into
-  `BaseCharacter.GetAccumulatedStats()` that isn't real yet.
-
-`TecVest.Stats` (`+1 HPModifier`, `+2 DefensePower`) and
-`Cigarette.Stats` (`-1 HPModifier`, `+2 AttackPower`) are done.
-
-## Done, but signature changed
-
-- `GetSomeFreshAirAction`/`RegisterAbsenceAction`'s `Execute` bodies are
-  real now. `IAction.Execute` changed from `(IDamageable actor,
-  IDamageable victim, double modifier)` to `(IDamageable actor,
+- `TecTeacher.GetStatsForLevel(int)` — real: a private base-stats
+  constant (`HP 10, Attack 3, Defense 2, Speed 5`) scaled linearly by
+  `level`.
+- `TecVest.Stats` (`+1 HPModifier`, `+2 DefensePower`) and
+  `Cigarette.Stats` (`-1 HPModifier`, `+2 AttackPower`) — real.
+- `BaseCharacter.GetAccumulatedStats()` and `LootThisCharacter()`
+  (renamed from `Loot()`) — real, and everything they depend on
+  (`Gear`'s slots, `TecTeacher.GetStatsForLevel`, item `Stats`) is real
+  too now, so both run end-to-end.
+- `GetSomeFreshAirAction`/`RegisterAbsenceAction`'s `Execute` bodies —
+  real. `IAction.Execute` changed from `(IDamageable actor, IDamageable
+  victim, double modifier)` to `(IDamageable actor,
   IReadOnlyList<IDamageable> targets, double modifier)` — needed since
   `RegisterAbsenceAction` hits the whole enemy party, not one target.
-  `GetSomeFreshAirAction` heals `actor` for a flat 5, ignoring `targets`/
-  `modifier`. `RegisterAbsenceAction` deals a flat 2 damage to every
-  entry in `targets`, scaled by `modifier` (meant to carry stat-based
-  scaling from whoever calls `Execute`). All placeholder numbers, not
-  balance. `Battle.Domain` doesn't call `Execute` anywhere yet
-  (`Battle.ResolveAction` is still its own stub), so this didn't ripple
-  there — but `Battle.Domain`'s eventual `ResolveAction` implementation
-  will need to build a `targets` list (the opposing party's `IDamageable`s)
-  before calling this.
-
+  `GetSomeFreshAirAction` heals `actor` for a flat 5, ignoring
+  `targets`/`modifier`. `RegisterAbsenceAction` deals a flat 2 damage to
+  every entry in `targets`, scaled by `modifier`. All placeholder
+  numbers, not balance. `Battle.Domain` doesn't call `Execute` anywhere
+  yet (`Battle.ResolveAction` is still its own stub) — its eventual
+  implementation will need to build a `targets` list (the opposing
+  party's `IDamageable`s) before calling this.
 
 ## Deferred on purpose
 
@@ -83,6 +73,7 @@ through, so both share the same validation/stat rules.
 
 ## Cosmetic, not blocking anything
 
-- `CS0108` warnings on `IClass`/`IItem`/`IAction` (each redeclares
-  `Name`/`Description` alongside `: ICatalogItem`, by choice) — could add
-  `new` to each to silence them; never confirmed whether that's wanted.
+- `CS0108` warnings on `IItem` (`Name`/`Description` redeclared alongside
+  `: ICatalogItem`, by choice) — could add `new` to silence them; never
+  confirmed whether that's wanted. `IClass`/`IAction` had their
+  redundant redeclarations cleaned up already.
