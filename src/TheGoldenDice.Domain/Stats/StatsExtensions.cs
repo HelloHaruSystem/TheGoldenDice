@@ -4,7 +4,7 @@ using System.Text;
 
 namespace TheGoldenDice.Domain.Stats
 {
-    public static class StatsExtensions
+    internal static class StatsExtensions
     {
         public static IStats Plus(this IStats a, IStats b)
         {
