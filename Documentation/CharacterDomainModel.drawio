@@ -1,6 +1,6 @@
 <mxfile host="Electron">
   <diagram name="Page-1" id="oURTO_1F9EaWobPOkIus">
-    <mxGraphModel dx="1771" dy="2001" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="1629" dy="1876" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -76,7 +76,7 @@
         <mxCell id="1OjKhFDBfKCCN9yBZbfW-3" parent="1OjKhFDBfKCCN9yBZbfW-1" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" value="" vertex="1">
           <mxGeometry height="8" width="210" y="248" as="geometry" />
         </mxCell>
-        <mxCell id="1OjKhFDBfKCCN9yBZbfW-4" parent="1OjKhFDBfKCCN9yBZbfW-1" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="+ Loot(): List&amp;lt;Item&amp;gt;" vertex="1">
+        <mxCell id="1OjKhFDBfKCCN9yBZbfW-4" parent="1OjKhFDBfKCCN9yBZbfW-1" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="+ LootThisCharacter(): List&amp;lt;Item&amp;gt;" vertex="1">
           <mxGeometry height="26" width="210" y="256" as="geometry" />
         </mxCell>
         <mxCell id="1OjKhFDBfKCCN9yBZbfW-17" parent="1OjKhFDBfKCCN9yBZbfW-1" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="+ TakeDamage(int) : void" vertex="1">
