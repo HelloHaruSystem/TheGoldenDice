@@ -2,5 +2,6 @@
   <Folder Name="/src/">
     <Project Path="src/TheGoldenDice.Domain/TheGoldenDice.Domain.csproj" />
     <Project Path="src/TheGoldenDice.Battle.Domain/TheGoldenDice.Battle.Domain.csproj" />
+    <Project Path="src/TheGoldenDice.Server/TheGoldenDice.Server.csproj" />
   </Folder>
 </Solution>
