@@ -23,7 +23,7 @@ public abstract class BaseCharacter(
     private IClass _class = @class;
     private IStats _stats = stats;
 
-    public virtual List<IItem> Loot()
+    public virtual List<IItem> LootThisCharacter()
         => throw new NotImplementedException();
 
     public IStats GetAccumulatedStats()
