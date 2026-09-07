@@ -1,3 +1,4 @@
+using TheGoldenDice.Domain.Character;
 using TheGoldenDice.Domain.Classes;
 
 namespace TheGoldenDice.Domain.Action;
@@ -10,5 +11,5 @@ public interface IAction
     public int RequiredLevel { get; set; }
     public HashSet<IClass> AllowedClasses { get; set; }
 
-    public void Execute();
+    public void Execute(IDamageable actor, IDamageable victim, double modifier);
 }

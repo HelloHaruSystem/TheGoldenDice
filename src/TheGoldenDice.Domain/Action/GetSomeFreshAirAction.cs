@@ -1,3 +1,4 @@
+using TheGoldenDice.Domain.Character;
 using TheGoldenDice.Domain.Classes;
 
 namespace TheGoldenDice.Domain.Action;
@@ -16,7 +17,7 @@ internal sealed class GetSomeFreshAirAction(
     public int RequiredLevel { get; set; } = requiredLevel;
     public HashSet<IClass> AllowedClasses { get; set; } = allowedClasses;
 
-    public void Execute()
+    public void Execute(IDamageable actor, IDamageable victim, double modifier)
     {
         throw new NotImplementedException();
     }

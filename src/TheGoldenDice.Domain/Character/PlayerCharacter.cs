@@ -13,6 +13,18 @@ internal sealed class PlayerCharacter(
         IGear gear,
         IClass @class,
         IStats stats)
-        : BaseCharacter(name, level, maxHp, actions, gear, @class, stats)
+        : BaseCharacter(name, level, actions, gear, @class, stats), IDamageable
 {
+    public int MaxHp { get; set; } = maxHp;
+    public int CurrentHp { get; set; } = maxHp;
+
+    public void Heal(int healPoints)
+    {
+        throw new NotImplementedException();
+    }
+
+    public void TakeDamage(int damagePoints)
+    {
+        throw new NotImplementedException();
+    }
 }
