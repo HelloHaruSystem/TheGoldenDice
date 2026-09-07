@@ -19,18 +19,43 @@ internal sealed class NpcCharacter
 {
     public int MaxHp { get; set; } = maxHp;
     public int CurrentHp { get; set; } = maxHp;
-    private List<String> _tauntMessages { get; set; } = tauntMessages;
+    private readonly List<string> _tauntMessages = tauntMessages;
 
     public string GetTauntMessage()
-        => throw new NotImplementedException();
+    {
+        if (_tauntMessages.Count == 0) 
+        {
+            return string.Empty;
+        }
+
+        return _tauntMessages[Random.Shared.Next(_tauntMessages.Count)];
+    }
 
     public void Heal(int healPoints)
     {
-        throw new NotImplementedException();
+        int newHp = CurrentHp + healPoints;
+
+        if (newHp >= MaxHp)
+        {
+            CurrentHp = MaxHp;
+            return;
+        }
+
+        CurrentHp = newHp;
+
     }
 
     public void TakeDamage(int damagePoints)
     {
-        throw new NotImplementedException();
+        int newHp = CurrentHp - damagePoints;
+
+        if (newHp < 0)
+        {
+            CurrentHp = 0;
+            return;
+        }
+
+        CurrentHp = newHp;
+
     }
 }
