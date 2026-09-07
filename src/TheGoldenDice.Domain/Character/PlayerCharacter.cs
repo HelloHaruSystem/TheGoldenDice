@@ -20,11 +20,29 @@ internal sealed class PlayerCharacter(
 
     public void Heal(int healPoints)
     {
-        throw new NotImplementedException();
+        int newHp = CurrentHp + healPoints;
+
+        if (newHp >= MaxHp)
+        {
+            CurrentHp = MaxHp;
+            return;
+        }
+
+        CurrentHp = newHp;
+
     }
 
     public void TakeDamage(int damagePoints)
     {
-        throw new NotImplementedException();
+        int newHp = CurrentHp - damagePoints;
+
+        if (newHp < 0)
+        {
+            CurrentHp = 0;
+            return;
+        }
+
+        CurrentHp = newHp;
+
     }
 }
