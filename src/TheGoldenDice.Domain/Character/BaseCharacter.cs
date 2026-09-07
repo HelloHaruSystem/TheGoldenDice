@@ -28,6 +28,8 @@ public abstract class BaseCharacter(
 
     public IStats GetAccumulatedStats()
     {
-        IStats result = new Stats();
+        return _stats
+            .Plus(_class.GetStatsForLevel(level))
+            .Plus(Gear.GetAccumulatedStats());
     }
 }
