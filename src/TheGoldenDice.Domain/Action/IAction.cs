@@ -10,5 +10,5 @@ public interface IAction : ICatalogItem
     public int RequiredLevel { get; set; }
     public HashSet<IClass> AllowedClasses { get; set; }
 
-    public void Execute(IDamageable actor, IDamageable victim, double modifier);
+    public void Execute(IDamageable actor, IReadOnlyList<IDamageable> targets, double modifier);
 }
